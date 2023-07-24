@@ -30,4 +30,4 @@
         user: "{{ item }}"
         state: present
         key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
-        with_items: "{{ sudoers }}"
+      with_items: "{{ sudoers }}"
