@@ -1,0 +1,12 @@
+- name: Update apt and install required system packages
+    apt:
+      pkg:
+        - curl
+        - vim
+        - git
+        - ufw
+        - wget
+        - telnet
+        - tcptraceroute
+      state: latest
+      update_cache: true
