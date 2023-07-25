@@ -30,14 +30,9 @@
         repo: 'https://github.com/Ashok-Karuppaiyan/systems.git'
         dest: /tmp/repo
     
-    - name: copy ssh pub key file to semaphore
-      copy:
-        src: /tmp/repo/ssh_keys/id_rsa.pub
-        dest: /tmp/semaphore/.ssh/id_rsa.pub
-
     - name: Set authorized key for remote user
       ansible.posix.authorized_key:
         user: "{{ item }}"
         state: present
-        key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
+        key: https://github.com/Ashok-Karuppaiyan/systems/blob/main/ssh_keys/id_rsa.pub
       with_items: "{{ sudoers }}"
