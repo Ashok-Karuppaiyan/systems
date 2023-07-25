@@ -28,11 +28,11 @@
     - name: Glone from Git
       ansible.builtin.git:
         repo: 'https://github.com/Ashok-Karuppaiyan/systems.git'
-        dest: /tmp/
+        dest: /tmp/repo
 
     - name: copy ssh pub key file to semaphore
       copy:
-        src: /tmp/systems/ssh_keys/id_rsa.pub
+        src: /tmp/repo/systems/ssh_keys/id_rsa.pub
         dest: /tmp/semaphore/.ssh/id_rsa.pub
 
     - name: Set authorized key for remote user
