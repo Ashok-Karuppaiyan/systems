@@ -25,6 +25,16 @@
         append: yes
       with_items: "{{ sudoers }}"
 
+    - name: Glone from Git
+      ansible.builtin.git:
+        repo: 'https://github.com/Ashok-Karuppaiyan/systems.git'
+        dest: /tmp/systems
+
+    - name: copy ssh pub key file to semaphore
+      copy:
+        src: /tmp/systems/ssh_keys/id_rsa.pub
+        dst: /tmp/semaphore/.ssh/id_rsa.pub
+
     - name: Set authorized key for remote user
       ansible.posix.authorized_key:
         user: "{{ item }}"
