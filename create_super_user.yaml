@@ -28,7 +28,7 @@
     - name: Glone from Git
       ansible.builtin.git:
         repo: 'https://github.com/Ashok-Karuppaiyan/systems.git'
-        dest: /tmp/systems
+        dest: /tmp/
 
     - name: copy ssh pub key file to semaphore
       copy:
