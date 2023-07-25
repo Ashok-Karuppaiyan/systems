@@ -30,16 +30,9 @@
         repo: 'https://github.com/Ashok-Karuppaiyan/systems.git'
         dest: /tmp/repo
     
-    - name: list dir
-      ansible.builtin.shell:
-         cmd: ls -l ; pwd ; cd /tmp ; ls -l 
-         register: cmd_out
-    
-    - debug: msg="{{cmd_out.stdout}}"
-
     - name: copy ssh pub key file to semaphore
       copy:
-        src: /tmp/repo/systems/ssh_keys/id_rsa.pub
+        src: /tmp/repo/ssh_keys/id_rsa.pub
         dest: /tmp/semaphore/.ssh/id_rsa.pub
 
     - name: Set authorized key for remote user
