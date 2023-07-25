@@ -29,6 +29,10 @@
       ansible.builtin.git:
         repo: 'https://github.com/Ashok-Karuppaiyan/systems.git'
         dest: /tmp/repo
+    
+    - name: list dir
+      ansible.builtin.shell:
+         cmd: ls -l ; pwd ; cd /tmp ; ls -l 
 
     - name: copy ssh pub key file to semaphore
       copy:
