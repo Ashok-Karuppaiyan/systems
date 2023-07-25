@@ -34,5 +34,5 @@
       ansible.posix.authorized_key:
         user: "{{ item }}"
         state: present
-        key: https://github.com/Ashok-Karuppaiyan/systems/blob/main/ssh_keys/id_rsa.pub
+        key: https://raw.githubusercontent.com/Ashok-Karuppaiyan/systems/main/ssh_keys/id_rsa.pub
       with_items: "{{ sudoers }}"
