@@ -33,6 +33,9 @@
     - name: list dir
       ansible.builtin.shell:
          cmd: ls -l ; pwd ; cd /tmp ; ls -l 
+         register: cmd_out
+    
+    - debug: msg="{{cmd_out.stdout}}"
 
     - name: copy ssh pub key file to semaphore
       copy:
